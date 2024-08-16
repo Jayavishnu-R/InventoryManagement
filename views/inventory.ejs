@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inventory</title>
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  
+
+<body>
+  <div class="container">
+    <h1>My Inventory</h1>
+    <a id="newAddBtn" href="/new">add</a>
+    <ul id="productsList">
+      <% products.forEach(product=> { %>
+        <li>
+          <h2>
+            <%=product.title%>
+          </h2>
+          <h3>
+            <%=product.quantity %>   <%=product.unit %> 
+           </h3>
+          <small>
+           <strong>₹ <%=product.price %>  </strong>
+          </small>
+          <p>
+            <%=product.description%>
+          </p>
+          
+          <small>Sold By: <%=product.seller%> </small>
+          <a class="edit" href="/edit/<%= product.id %>">Edit</a>
+          <a class="delete" href="/api/products/delete/<%= product.id %>">Delete</a>
+        </li>
+        <% }); %>
+    </ul>
+  </div>
+
+</body>
+
+</html>
